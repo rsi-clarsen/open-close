@@ -7,8 +7,6 @@ import com.clarsen.sandbox.designpatterns.ocp.enums.Color;
 import com.clarsen.sandbox.designpatterns.ocp.enums.Size;
 import com.clarsen.sandbox.designpatterns.ocp.model.Product;
 
-// this class violates the open close principle because code needs to be added to a class that has already been
-// created and tested.  This can be solved by using the specification pattern coupled with the OCP principle
 public class ProductFilter {
 
     public Stream<Product> filterByColor(List<Product> products, Color color) {
