@@ -67,7 +67,7 @@ assertTrue(underTest.contains(APPLE));
 assertTrue(underTest.contains(TREE));
 ```
 
-Although this works, the product filter violates the open close priciple because code needs to be added to a class that has already been created and tested.  Any new filtering logic would need to create another member function.
+Although this works, the product filter violates the open close principle because code needs to be added to a class that has already been created and tested.  Any new filtering logic would need to create another member function.
 
 ## OCP Solution
 
@@ -101,6 +101,7 @@ public class OCPProductFilter implements Filter<Product> {
 ```
 
 Now create the `ColorSpecification` and the `SizeSpecification` to use for the `OCPProductFilter`.  
+
 [ColorSpecification](src/main/java/com/clarsen/sandbox/designpatterns/ocp/spec/ColorSpecification.java):
 ```
 public class ColorSpecification implements Specification<Product> {
@@ -176,9 +177,10 @@ Now the ***products*** list can be filtered by creating and using the new `AndSp
 ```
 OCPProductFilter ocpFilter = new OCPProductFilter();
 
-AndSpecification<Product> spec = new AndSpecification<>(
-    new ColorSpecification(Color.BLUE),
-    new SizeSpecification(Size.LARGE));
+AndSpecification<Product> spec = AndSpecification.<Product>builder()
+                                    .spec1(new ColorSpecification(Color.BLUE))
+                                    .spec2(new SizeSpecification(Size.LARGE))
+                                    .build();
 
 List<Product> underTest = ocpFilter.filter(products, spec)
     .collect(Collectors.toList());

@@ -53,9 +53,10 @@ class OcpApplicationTests {
     void testOCPWithMultiSpec() {
         OCPProductFilter ocpFilter = new OCPProductFilter();
 
-        AndSpecification<Product> spec = new AndSpecification<>(
-            new ColorSpecification(Color.BLUE),
-            new SizeSpecification(Size.LARGE));
+        AndSpecification<Product> spec = AndSpecification.<Product>builder()
+                                            .spec1(new ColorSpecification(Color.BLUE))
+                                            .spec2(new SizeSpecification(Size.LARGE))
+                                            .build();
 
         List<Product> underTest = ocpFilter.filter(products, spec)
             .collect(Collectors.toList());
