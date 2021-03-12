@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.clarsen.sandbox.designpatterns.ocp.enums.Color;
-import com.clarsen.sandbox.designpatterns.ocp.enums.Size;
-import com.clarsen.sandbox.designpatterns.ocp.filters.OCPProductFilter;
-import com.clarsen.sandbox.designpatterns.ocp.filters.ProductFilter;
-import com.clarsen.sandbox.designpatterns.ocp.model.Product;
-import com.clarsen.sandbox.designpatterns.ocp.spec.AndSpecification;
-import com.clarsen.sandbox.designpatterns.ocp.spec.ColorSpecification;
-import com.clarsen.sandbox.designpatterns.ocp.spec.SizeSpecification;
+import com.clarsen.designpatterns.ocp.enums.Color;
+import com.clarsen.designpatterns.ocp.enums.Size;
+import com.clarsen.designpatterns.ocp.filters.OCPProductFilter;
+import com.clarsen.designpatterns.ocp.filters.ProductFilter;
+import com.clarsen.designpatterns.ocp.model.Product;
+import com.clarsen.designpatterns.ocp.spec.AndSpecification;
+import com.clarsen.designpatterns.ocp.spec.ColorSpecification;
+import com.clarsen.designpatterns.ocp.spec.SizeSpecification;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.clarsen.sandbox.designpatterns.ocp;
+package com.clarsen.designpatterns.ocp;
 
 public class OcpApplication {
 

@@ -1,4 +1,4 @@
-package com.clarsen.sandbox.designpatterns.ocp.spec;
+package com.clarsen.designpatterns.ocp.spec;
 
 import java.util.stream.Stream;
 

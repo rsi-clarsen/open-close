@@ -1,7 +1,7 @@
-package com.clarsen.sandbox.designpatterns.ocp.spec;
+package com.clarsen.designpatterns.ocp.spec;
 
-import com.clarsen.sandbox.designpatterns.ocp.enums.Color;
-import com.clarsen.sandbox.designpatterns.ocp.model.Product;
+import com.clarsen.designpatterns.ocp.enums.Color;
+import com.clarsen.designpatterns.ocp.model.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
