@@ -1,4 +1,4 @@
-package com.clarsen.sandbox.designpatterns.ocp;
+package com.clarsen.designpatterns.ocp;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
