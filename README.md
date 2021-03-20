@@ -7,21 +7,21 @@ Imagine working on an online retail application that sales `Product`s.  The proj
 Coupling the open-close principle with the ***Specification*** enterprise design pattern, we can create individual `Filter`s to satisfy the product owner.
 
 ## Product Model
-[Color](src/main/java/com/clarsen/sandbox/designpatterns/ocp/enums/Color.java): basic enum to supply values to filter by
+[Color](src/main/java/com/clarsen/designpatterns/ocp/enums/Color.java): basic enum to supply values to filter by
 ```
 public enum Color {
     RED, BLUE, GREEN
 }
 ```
 
-[Size](src/main/java/com/clarsen/sandbox/designpatterns/ocp/enums/Size.java): basic enum to supply values to filter by
+[Size](src/main/java/com/clarsen/designpatterns/ocp/enums/Size.java): basic enum to supply values to filter by
 ```
 public enum Size {
     SMALL, MEDIUM, LARGE, HUGE
 }
 ```
 
-[Product](src/main/java/com/clarsen/sandbox/designpatterns/ocp/model/Product.java): model containing 3 member fields
+[Product](src/main/java/com/clarsen/designpatterns/ocp/model/Product.java): model containing 3 member fields
 ```
 public class Product {
     private String name;
@@ -31,7 +31,7 @@ public class Product {
 ```
 
 ## Non OCP Solution
-[ProductFilter](src/main/java/com/clarsen/sandbox/designpatterns/ocp/filters/ProductFilter.java)
+[ProductFilter](src/main/java/com/clarsen/designpatterns/ocp/filters/ProductFilter.java)
 ```
 public class ProductFilter {
 
@@ -73,9 +73,9 @@ Although this works, the product filter violates the open close principle becaus
 
 Can solve the ocp problem with help from the **specification** pattern.
 
-First, create a generic interface to determin if a given object satisfies a specific rule.  
+First, create a generic interface to determine if a given object satisfies a specific rule.  
 
-[Specfication](src/main/java/com/clarsen/sandbox/designpatterns/ocp/spec/Specification.java):
+[Specification](src/main/java/com/clarsen/designpatterns/ocp/spec/Specification.java):
 ```
 public interface Specification<T> {
     boolean isSatisfied(T item);
@@ -102,7 +102,7 @@ public class OCPProductFilter implements Filter<Product> {
 
 Now create the `ColorSpecification` and the `SizeSpecification` to use for the `OCPProductFilter`.  
 
-[ColorSpecification](src/main/java/com/clarsen/sandbox/designpatterns/ocp/spec/ColorSpecification.java):
+[ColorSpecification](src/main/java/com/clarsen/designpatterns/ocp/spec/ColorSpecification.java):
 ```
 public class ColorSpecification implements Specification<Product> {
     private Color color;
@@ -113,7 +113,7 @@ public class ColorSpecification implements Specification<Product> {
     }
 }
 ```
-[SizeSpecification](src/main/java/com/clarsen/sandbox/designpatterns/ocp/spec/SizeSpecification.java)
+[SizeSpecification](src/main/java/com/clarsen/designpatterns/ocp/spec/SizeSpecification.java)
 ```
 public class SizeSpecification implements Specification<Product> {
     private Size size;
@@ -148,9 +148,9 @@ assertTrue(underTest.contains(APPLE));
 assertTrue(underTest.contains(TREE));
 ```
 
-Now the product owner has came back wanting the ability to filter a list of `Product`s by a specific `Color` *and* `Size`.  Now that all the peices have been created, tested, and deployed--we can now create a new `Specification` to give to our `OCPProductFilter`.
+Now the product owner has came back wanting the ability to filter a list of `Product`s by a specific `Color` *and* `Size`.  Now that all the pieces have been created, tested, and deployed--we can now create a new `Specification` to give to our `OCPProductFilter`.
 
-[AndSpecification](src/main/java/com/clarsen/sandbox/designpatterns/ocp/spec/AndSpecification.java):
+[AndSpecification](src/main/java/com/clarsen/designpatterns/ocp/spec/AndSpecification.java):
 ```
 public class AndSpecification<T> implements Specification<T> {
     private Specification<T> spec1, spec2;
